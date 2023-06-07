@@ -1,0 +1,16 @@
+export enum Url {
+  BASE_URL = 'http://kazatskaya-izba.ru/api/',
+  API_LOGIN = 'auth/jwt/login',
+  API_VERIFY = 'auth/verify',
+  API_REG = 'auth/register',
+  API_FORGOT_PASSWORD = 'auth/forgot-password',
+  API_USER_ME = 'users/me',
+  API_SET_PASSWORD = 'auth/set-password',
+  API_CATEGORIES = 'categories',
+  API_PRODUCTS = 'products',
+  // PATH_API_RESET = '/api/auth/reset-password',
+  // API_SKILLS = '/skills/',
+  // API_DOCS = '/documents/',
+  // API_SESSIONS = '/sessions/',
+  // API_TIMETABLE = '/timetable/',
+}

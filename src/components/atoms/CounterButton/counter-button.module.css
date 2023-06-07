@@ -1,0 +1,24 @@
+.button__wrapper {
+  display: flex;
+  align-items: center;
+  padding: 10px 13px;
+  gap: 30px;
+  background: var(--color-black);
+  border-radius: 5px;
+}
+
+.button__icon {
+  width: 24px;
+  height: 24px;
+}
+
+.button__icon path {
+  stroke: var(--color-white);
+}
+
+.button__text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: var(--color-white);
+}

@@ -1,0 +1,50 @@
+.sausage__wrapper {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.swiper__handler {
+  width: 200px;
+  height: 390px;
+  position: absolute;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: grab;
+}
+
+.swiper__handler_up {
+  top: 260px;
+  left: 0;
+  background-image: url('../../assets/img/swiper_up.png');
+  z-index: 3;
+}
+
+.swiper__handler_down {
+  bottom: 175px;
+  left: 0;
+  background-image: url('../../assets/img/swiper_down.png');
+}
+
+.sausage__piece {
+  width: 100%;
+  height: 100%;
+  background-image: url('../../assets/img/sausage_circle.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  top: 40px;
+  left: -5px;
+}
+
+@media (width <= 1440px) {
+  .sausage__piece {
+    transform: translateX(10px);
+    top: 190px;
+    background-size: cover;
+    width: 165%;
+    height: 75%;
+    background-position: left;
+  }
+}

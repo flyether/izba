@@ -1,0 +1,114 @@
+.form__container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  gap: 30px;
+  background: var(--color-white);
+  box-shadow: 22px 32px 24px rgba(24, 26, 28, 0.01), 10px 14px 17px rgba(24, 26, 28, 0.02), 2px 4px 10px rgba(24, 26, 28, 0.02), 0px 0px 0px rgba(24, 26, 28, 0.02);
+  border-radius: 5px;
+}
+
+.form__title {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 33px;
+  color: #000000;
+  text-align: center;
+}
+
+.input__group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  width: 100%;
+}
+
+
+.input__group label {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 14px;
+  color: #000000;
+}
+
+.form__input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #B9B9B9;
+  border-radius: 5px;
+  outline: none;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #000000;
+}
+
+.error__message {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #CC2929;
+  opacity: 0;
+}
+
+.visible {
+  opacity: 1;
+}
+
+.form__input:focus {
+  border: 1px solid #FCD4BA;
+}
+
+.form__input:disabled {
+  background: #DFDFDF;
+}
+
+.error,
+.error:focus {
+  border: 1px solid #CC2929;
+}
+
+.form__button {
+  width: 100%;
+}
+
+.back__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 30px;
+}
+
+.back__link{
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: var(--color-black);
+}
+
+.back__link:hover {
+  text-decoration: underline;
+}
+
+.advantage {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+}
+
+.forgot_pass__link {
+  align-self: flex-end;
+  transform: translateY(-5px);
+}
+
+.advantage__link {
+  color: #2A56C6 !important;
+}
+
+.advantage__link:hover {
+  text-decoration: underline;
+}

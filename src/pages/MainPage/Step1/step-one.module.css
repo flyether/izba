@@ -1,0 +1,142 @@
+.step_one__wrapper {
+  width: 100%;
+  height: 1095px;
+  display: flex;
+  justify-content: center;
+}
+
+.step_one__container {
+  width: 1128px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  transform: translateY(-42px);
+}
+
+.step_one__heading {
+  width: 100%;
+  height: 174px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  transform: translateY(-160%);
+}
+
+.heading__title {
+  height: 100%;
+  font-weight: 800;
+  font-size: 64px;
+  line-height: 87px;
+  color: var(--color-white);
+}
+
+.heading__link {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.link__img {
+  width: 90px;
+  height: 90px;
+  background: transparent;
+}
+
+.link__text {
+  display: inline-block;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 27px;
+  text-align: center;
+  color: var(--color-white);
+  white-space: nowrap;
+}
+
+.infoblock {
+  display: flex;
+  align-items: center;
+  gap: 100px;
+}
+
+.infoblock__item {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.item__img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+}
+
+.item__img_one {
+  background: url('../../../assets/img/info_pic1.png') no-repeat center;
+}
+
+.item__img_two {
+  background: url('../../../assets/img/info_pic2.png') no-repeat center;
+}
+
+.item__img_three {
+  background: url('../../../assets/img/info_pic3.png') no-repeat center;
+}
+
+.item__text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  color: #FDFDFD;
+}
+
+.text__top {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 27px;
+}
+
+.text__bottom {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+@media (width < 769px) {
+  .step_one__wrapper {
+    height: 960px;
+  }
+
+  .step_one__container {
+    width: 704px;
+    transform: translateY(0);
+  }
+
+  .step_one__heading {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .heading__title {
+    margin-top: 185px;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 65px;
+    text-align: center;
+  }
+
+  .heading__link {
+    justify-content: flex-start;
+  }
+
+  .infoblock {
+    margin-top: 250px;
+    gap: 52px;
+  }
+}

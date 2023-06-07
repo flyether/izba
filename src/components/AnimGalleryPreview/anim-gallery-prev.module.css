@@ -1,0 +1,51 @@
+.preview__container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.preview__viewport {
+  transform: translateY(-42px);
+  margin-top: 42px;
+}
+
+.preview__item {
+  width: 552px;
+  height: 685px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.item__view {
+  z-index: 3;
+}
+
+.item__next {
+  transform:  translateY(-100%) rotate(8.92deg);
+  z-index: 2;
+  position: absolute;
+}
+
+.item__prev {
+  transform: rotate(-8.42deg);
+  position: absolute;
+}
+
+.preview__handler {
+  width: 120px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-left: 68px;
+}
+
+.handler__item {
+  cursor: pointer;
+}
+
+.handler__item path {
+  stroke: var(--color-white);
+}

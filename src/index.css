@@ -1,0 +1,50 @@
+:root {
+  --primary-bg: #2F3437;
+  --color-carrot: #F5894F;
+  --color-white: #ffffff;
+  --color-apricot: #FCD4BA;
+  --color-black: #000000;
+  --color-bright-yellow: #FAB400;
+  --color-shadow-grey: #6C6C6C;
+  --color-primary-btn: #F08200;
+  --color-primary-hover: #F5894F;
+  --color-secondary-hover: #2E2E2E;
+  --color-disable: #9A9A9A;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+input,
+button,
+textarea,
+select {
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+	padding:0;
+  border:0;
+}
+
+a, 
+a:visited,
+a:hover {
+	text-decoration: none;
+  color: inherit;
+}
+
+:focus,
+:active {
+  outline: none;
+}

@@ -1,0 +1,23 @@
+.layout__wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.layout__container {
+  max-width: 1920px;
+  width: 100%;
+  height: 100%;
+  background-image: url('../../assets/img/main-bg.png');
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+@media (width < 769px) {
+  .layout__container {
+    background-size: auto;
+  }
+}

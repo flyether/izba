@@ -1,0 +1,46 @@
+.carousel__container {
+  width: 100%;
+  height: 608px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 50px;
+}
+
+.carousel__title {
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 65px;
+  color: var(--color-white);
+}
+
+.carousel__handler {
+  width: 34px;
+  height: 34px;
+  border-radius: 5px;
+  background-color: var(--color-white);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.handler {
+  width: 24px;
+  height: 24px;
+}
+
+.handler path {
+  stroke: var(--color-black);
+}
+
+.handler__right {
+  right: -74px;
+}
+
+.handler__left {
+  left: -74px;
+}
+

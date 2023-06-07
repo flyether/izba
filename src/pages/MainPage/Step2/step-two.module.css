@@ -1,0 +1,88 @@
+.step_two__wrapper {
+  width: 100%;
+  height: 1240px;
+  display: flex;
+  justify-content: center;
+  transform: translateY(36px);
+}
+
+.step_two__container {
+  width: 100%;
+  max-width: 1920px;
+  padding-top: 130px;
+  display: flex;
+  background-image: url("../../../assets/img/bg_step2.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: var(--primary-bg);
+  padding: 0px 21px;
+}
+
+.step_two__block {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  transform: translateY(-42px);
+}
+
+.gallery__preview {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.preview__header {
+  width: 100%;
+  display: flex;
+  padding-left: 48px;
+  transform: translateY(-42px);
+}
+
+.preview__title {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 44px;
+  color: var(--color-bright-yellow);
+}
+
+.preview__body {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 42px;
+  padding-left: 42px;
+}
+
+.sausage__circle {
+  width: 50%;
+  position: relative;
+}
+
+/* .spotlight {
+  width: 1170px;
+  height: 1157px;
+  position: absolute;
+  top: 260px;
+  right: 0;
+  background: url('../../../assets/img/light_spot.png');
+  background-position: bottom;
+  z-index: 2;
+} */
+
+@media (width <= 1440px) {
+  .step_two__container {
+    max-width: 1128px;
+    background-image: none;
+    padding: 0;
+  }
+
+  .preview__body {
+    padding-left: 0;
+  }
+
+  .preview__header {
+    padding-left: 0;
+  }
+}

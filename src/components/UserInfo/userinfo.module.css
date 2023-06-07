@@ -1,0 +1,64 @@
+.userinfo__wrapper {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  color: var(--color-black);
+}
+
+.userinfo__data {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.user,
+.guest__section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user__name,
+.guest__text {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+}
+
+.cart__info {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.cart__text {
+  display: flex;
+  gap: 2px;
+  
+}
+
+.cart__text span {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.guset__icon {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.guest__image{
+  width: 24px;
+  height: 24px;
+}
+
+.guest__image circle,
+.guest__image path {
+  
+  stroke: var(--color-black);
+  fill: transparent;
+}
