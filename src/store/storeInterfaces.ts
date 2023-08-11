@@ -2,7 +2,7 @@ import { SerializedError } from '@reduxjs/toolkit';
 
 export interface IError extends SerializedError {
   data: {
-    message: string;
+    detail: string;
     stack: string;
   };
   status: number;
@@ -67,13 +67,68 @@ export type ProductType = {
   delivery?: string;
   composition?: string;
   temperature?: string;
-  weight?: string;
+  weight?: number;
+  amount?: number;
+  units?: string;
   characteristic?: string;
-  img?: string;
+  photo?: string[];
 };
 
 export type ProductsSearchParams = {
   category?: string;
   skip?: number;
   limit?: number;
+};
+export type SoppingCart = {
+  product: number | null;
+  user_id: string;
+  amount: number | null;
+};
+
+export type SoppingCartResponse = {
+  id: number;
+  product: number;
+  user_id: string;
+  amount: number;
+  price: number;
+};
+
+export type GuestId = {
+  user_id: string;
+};
+export type OrdersResponse = {
+  detail: string;
+  order_id: number;
+};
+
+export type OrdersRequest = {
+  user_id: string;
+  name: string;
+  phone: string;
+  address: string;
+  email: string;
+  comment?: string;
+  delivery: boolean;
+  order_products: number[];
+};
+
+export type OrderProducts = {
+  product: number;
+  amount: number;
+  price: number;
+};
+
+export type OrdersGetRequest = {
+  user_id: string;
+  id: number;
+  name: string;
+  phone: string;
+  address: string;
+  email: string;
+  comment?: string;
+  delivery: boolean;
+  payment: boolean;
+  created_on: string;
+  status: string;
+  order_products: OrderProducts[];
 };

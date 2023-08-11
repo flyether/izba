@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useAppSelector } from '../../store';
 import styles from './layout.module.css';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import { IError } from '../../store/storeInterfaces';
 import { LoadingScreen } from '../atoms/loading';
 import { ServerError } from '../atoms/ServerError/server-error';
@@ -12,31 +12,28 @@ const Layout = () => {
   const [trigger] = AuthorizationUserAPI.useLazyGetUserQuery();
   ProductsAPI.useGetAllProductsQuery({});
   const { token } = useAppSelector((state) => state.authorization);
-  ProductsAPI.useLazyGetAllProductsQuery();
+  // ProductsAPI.useLazyGetAllProductsQuery();
   const [rejectedEndpointName, setRejectedEndpointName] = useState<string | undefined>('undefined');
   const queries = useAppSelector((state) => state.api.queries);
   const mutations = useAppSelector((state) => state.api.mutations);
   const isSomeQueryPending = Object.values(queries).some((query) => query?.status === 'pending');
-
+  const navigate = useNavigate();
   const isSomeMutationPending = Object.values(mutations).some(
     (query) => query?.status === 'pending'
   );
 
   useEffect(() => {
-    if (token) trigger();
+    if (token !== '') trigger();
   }, [token, trigger]);
 
   useEffect(() => {
     const rejectedQuery = Object.values(queries).find((query) => query?.status === 'rejected');
-
+    const serverError = rejectedQuery?.error as IError;
     if (rejectedQuery && rejectedQuery.endpointName) {
-      if (rejectedQuery?.error?.message) {
-        setRejectedEndpointName(rejectedQuery.error?.message);
-      } else setRejectedEndpointName('ошибка квери');
-    } else {
-      setRejectedEndpointName(undefined);
+      if ((rejectedQuery?.endpointName === 'getUser' && rejectedQuery, serverError.status === 401))
+        navigate('/login', { replace: true });
     }
-  }, [queries]);
+  }, [navigate, queries]);
 
   useEffect(() => {
     const rejectedMutation = Object.values(mutations).find(
@@ -50,8 +47,8 @@ const Layout = () => {
       //   rejectedMutation.endpointName === 'postDocs'
       // )
       //   return;
-      if (serverError?.data?.message) {
-        setRejectedEndpointName(serverError.data.message);
+      if (serverError?.data?.detail) {
+        setRejectedEndpointName(serverError.data.detail);
       } else setRejectedEndpointName('ошибка с сервера на мутацию');
     } else {
       setRejectedEndpointName(undefined);

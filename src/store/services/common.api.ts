@@ -14,13 +14,12 @@ export const commonApi = createApi({
     baseUrl: Url.BASE_URL,
 
     prepareHeaders: (headers) => {
-      const token = localStorage.getItem('token');
+      const token = localStorage.getItem('tokenKazatskaya');
 
       if (token) {
         headers.set('Authorization', `bearer ${token}`);
       }
 
-      // headers.set('Content-Type', 'application/json');
       return headers;
     },
   }) as BaseQueryFn<

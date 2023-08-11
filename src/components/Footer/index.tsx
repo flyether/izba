@@ -23,7 +23,12 @@ const Footer = () => {
             <a href={`tel:${PHONE_NUMBER}`} className={styles.right__middle}>
               {PHONE_NUMBER}
             </a>
-            <div className={styles.right__social}>
+            <p className={styles.text}>
+              ИНН: 480703405080 <br />
+              ИП Оноприенко Валерий Валериевич{' '}
+            </p>
+
+            {/* <div className={styles.right__social}>
               <a href="/" target="_blank">
                 <img src={TelegramIcon} alt="Ссылка на нашу группу в Telegram" />
               </a>
@@ -36,7 +41,7 @@ const Footer = () => {
               <a href="/" target="_blank">
                 <img src={VKIcon} alt="Ссылка на нашу группу ВКонтакте" />
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

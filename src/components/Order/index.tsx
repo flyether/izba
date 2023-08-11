@@ -2,9 +2,13 @@ import styles from './order.module.css';
 import { ReactComponent as ArrowDown } from '../../assets/icons/arr_down.svg';
 import { ReactComponent as ArrowUp } from '../../assets/icons/arr_up.svg';
 import { useState } from 'react';
+import { ProductsAPI } from '../../store/services/ProductsService';
+import { useAppSelector } from '../../store';
 
 const Order = () => {
   const [visible, setVisible] = useState<boolean>(false);
+  ProductsAPI.useOrdersGetQuery();
+  const { ordersfromServer } = useAppSelector((state) => state.generalConditions);
 
   return (
     <div className={styles.order__wrapper}>
@@ -31,6 +35,7 @@ const Order = () => {
               )}
             </div>
           </div>
+
           <button className={styles.repeat__button}>Повторить</button>
         </div>
         {visible && (

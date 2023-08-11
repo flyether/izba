@@ -1,11 +1,13 @@
-export const PHONE_NUMBER = '+7 (903) 232-12-12';
+export const PHONE_NUMBER = '+7 (929) 520-63-77';
 
 export const routesNames = {
   '': 'Главная',
   catalog: 'Каталог',
   'detail-good': 'Название товара',
   cart: 'Корзина',
+  ordering: 'Оформление заказа',
   profile: 'Личный кабинет',
+  admin: 'панель администрирования',
   'confidentiality-policy': 'Политика конфиденциальности',
 };
 

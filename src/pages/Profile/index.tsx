@@ -4,9 +4,11 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import Button from '../../components/atoms/Button';
 import Order from '../../components/Order';
 import { useForm, FieldValues } from 'react-hook-form';
-import { setUserName, setUserPhone, useAppDispatch, useAppSelector } from '../../store';
+import { removeUser, setUserName, setUserPhone, useAppDispatch, useAppSelector } from '../../store';
 import { useEffect, useState } from 'react';
 import { AuthorizationUserAPI } from '../../store/services/UserService';
+import { removeAuthorization } from '../../store/slices/AuthorizationSlice';
+import exitPic from '../../assets/img/exit.png';
 
 const Profile = () => {
   const { token } = useAppSelector((state) => state.authorization);
@@ -62,6 +64,15 @@ const Profile = () => {
     setPassword(formDataPasswords).unwrap;
   };
 
+  const handleSignOut = () => {
+    navigate('/', { replace: true });
+    dispatch(removeUser());
+    dispatch(removeAuthorization());
+    localStorage.removeItem('totalKazatskaya');
+    localStorage.removeItem('cart');
+    localStorage.removeItem('tokenKazatskaya');
+  };
+
   return (
     <section className={styles.profile__wrapper}>
       <div className={styles.page__shadow} />
@@ -69,6 +80,13 @@ const Profile = () => {
         <BreadScrumbs location={location.pathname} />
         <h2 className={styles.profile__title}>Личный кабинет</h2>
         <div className={styles.profile__personal}>
+          <div className={styles.exit__section}>
+            <img alt="exit icon" src={exitPic} className={styles.img__exit} />
+            <button onClick={handleSignOut} className={styles.repeat__button}>
+              Выйти из профиля
+            </button>
+          </div>
+
           <form className={styles.personal__section} onSubmit={handleSubmit(onSubmit)}>
             <h3 className={styles.section__title}>Контактные данные</h3>
             <input

@@ -4,8 +4,8 @@ const initialState = {
   token: '',
 };
 
-if (localStorage.getItem('token')) {
-  initialState.token = localStorage.getItem('token') as string;
+if (localStorage.getItem('tokenKazatskaya')) {
+  initialState.token = localStorage.getItem('tokenKazatskaya') as string;
 }
 
 const authorizationSlice = createSlice({

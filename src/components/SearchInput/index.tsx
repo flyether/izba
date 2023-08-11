@@ -87,11 +87,11 @@ const SearchInput = ({ isVisible, handleClose }: SearchInputProps) => {
       {predictedTitles.length > 0 && (
         <div>
           <ul className={styles.ul}>
-            {predictedTitles.map(({ id, title, img }) => (
+            {predictedTitles.map(({ id, title, photo }) => (
               <Link key={v4()} to={`catalog/detail-good/${id}`} onClick={handleLinkClick}>
                 <li>
                   {' '}
-                  <img className={styles.img} src={img} alt="photo product"></img>
+                  <img className={styles.img} src={photo?.[0]} alt="photo product"></img>
                   <span dangerouslySetInnerHTML={{ __html: highlightTitle(title) }} />
                 </li>
               </Link>

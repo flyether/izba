@@ -57,10 +57,12 @@ const CarouselComponent = ({ title }: CarouselComponentProps) => {
           {productsForDisplay.map((product) => (
             <div key={v4()}>
               <Card
+                units={product.units ?? 'кг'}
+                weight={product.amount ?? 1}
                 id={product.id.toString()}
                 title={product.title}
                 category={product.category}
-                image={product.img ?? GoodImage}
+                image={product.photo?.[0] ?? GoodImage}
                 price={product.price.toString()}
               />
             </div>

@@ -34,7 +34,7 @@ const Step6 = () => {
                     title={product.title}
                     id={product.id.toString()}
                     text={product.price.toString()}
-                    img={product.img ?? GalleryItem}
+                    img={product.photo?.[0] ?? GalleryItem}
                   />
                 </div>
               ))}

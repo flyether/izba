@@ -1,7 +1,8 @@
 import { setUserToken } from '../slices/AuthorizationSlice';
-import { setUser } from '../slices/UserSlice';
+import { setUser, setUserIdSlice } from '../slices/UserSlice';
 import {
   AuthenticationRequest,
+  GuestId,
   IToken,
   PatchUser,
   RegData,
@@ -22,7 +23,7 @@ export const AuthorizationUserAPI = commonApi.injectEndpoints({
       }),
     }),
     verificationTokenPost: build.mutation<AuthenticationRequest, IToken>({
-      query: ({ token }) => ({
+      query: (token) => ({
         url: Url.API_VERIFY,
         method: 'POST',
         body: token,
@@ -31,7 +32,7 @@ export const AuthorizationUserAPI = commonApi.injectEndpoints({
         try {
           const result = await queryFulfilled;
           dispatch(setUserToken(result.data.access_token));
-          localStorage.setItem('token', result.data.access_token);
+          localStorage.setItem('tokenKazatskaya', result.data.access_token);
         } catch (e) {
           console.error('userApi verificationTokenPost error', e);
         }
@@ -47,7 +48,7 @@ export const AuthorizationUserAPI = commonApi.injectEndpoints({
         try {
           const result = await queryFulfilled;
           dispatch(setUserToken(result.data.access_token));
-          localStorage.setItem('token', result.data.access_token);
+          localStorage.setItem('tokenKazatskaya', result.data.access_token);
         } catch (e) {
           console.error('userApi Authorization error', e);
         }
@@ -66,6 +67,17 @@ export const AuthorizationUserAPI = commonApi.injectEndpoints({
         try {
           const result = await queryFulfilled;
           dispatch(setUser(result.data));
+        } catch (e) {
+          // Intentionally empty catch block - error handling is performed elsewhere
+        }
+      },
+    }),
+    getGuestId: build.query<GuestId, void>({
+      query: () => ({ url: Url.API_GET_GUEST_ID }),
+      async onQueryStarted(arg, { dispatch, queryFulfilled }) {
+        try {
+          const result = await queryFulfilled;
+          dispatch(setUserIdSlice(result.data.user_id));
         } catch (e) {
           // Intentionally empty catch block - error handling is performed elsewhere
         }

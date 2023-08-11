@@ -53,6 +53,11 @@
   line-height: 27px;
 }
 
+.text{
+  text-align: end;
+  line-height: 19px;
+}
+
 .right__middle {
   font-weight: 600;
   font-size: 24px;

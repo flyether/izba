@@ -3,9 +3,9 @@ import { User } from '../storeInterfaces';
 
 const initialState: User = {
   id: '',
-  email: 'tvt@qk',
-  phone: '+2222',
-  name: 'Барсучок',
+  email: '',
+  phone: '',
+  name: '',
   is_active: true,
   is_superuser: false,
   is_verified: false,
@@ -17,6 +17,9 @@ const userSlice = createSlice({
   reducers: {
     setUserName(state, action) {
       state.name = action.payload;
+    },
+    setUserIdSlice(state, action) {
+      state.id = action.payload;
     },
     setUserPhone(state, action) {
       state.phone = action.payload;
@@ -32,5 +35,5 @@ const userSlice = createSlice({
   },
 });
 
-export const { setUserName, setUser, removeUser, setUserPhone } = userSlice.actions;
+export const { setUserName, setUserIdSlice, setUser, removeUser, setUserPhone } = userSlice.actions;
 export default userSlice.reducer;

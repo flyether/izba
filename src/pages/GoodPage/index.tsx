@@ -11,6 +11,13 @@ import CarouselComponent from '../../components/CarouselComponent';
 import { ProductsAPI } from '../../store/services/ProductsService';
 import { useEffect, useState } from 'react';
 import { ProductType } from '../../store/storeInterfaces';
+import { useAppDispatch, useAppSelector } from '../../store';
+import {
+  addProductToCart,
+  removeProductFromCart,
+  updateProductCount,
+} from '../../store/slices/CartSlice';
+import CounterButton from '../../components/atoms/CounterButton';
 
 /*mock */
 
@@ -23,6 +30,13 @@ const GoodPage = () => {
   const [images, setImages] = useState<string[]>(imagesS);
   const [product, setProduct] = useState<ProductType>();
   const location = useLocation();
+  const [inCart, setInCart] = useState(false);
+  const dispatch = useAppDispatch();
+  const cartProducts = useAppSelector((state) => state.cart);
+  const count = useAppSelector((state) => {
+    const product = state.cart.find((product) => product.id?.toString() === id);
+    return product ? product.count : 0;
+  });
 
   useEffect(() => {
     if (productPhoto) setImages(productPhoto.map((e) => e.photo));
@@ -31,6 +45,25 @@ const GoodPage = () => {
   useEffect(() => {
     if (productReq) setProduct(productReq);
   }, [productReq]);
+
+  useEffect(() => {
+    const productInCart = cartProducts.find((product) => product.id?.toString() === id);
+    setInCart(!!productInCart);
+  }, [cartProducts, id]);
+
+  const handleAddToCart = () => {
+    dispatch(addProductToCart({ id, count: product?.weight ?? 1 }));
+    setInCart(true);
+  };
+
+  const handleUpdateCount = (newCount: number) => {
+    if (newCount <= 0) {
+      dispatch(removeProductFromCart(id));
+      setInCart(false);
+    } else {
+      dispatch(updateProductCount({ id, count: newCount }));
+    }
+  };
 
   return (
     <section className={styles.good__wrapper}>
@@ -45,7 +78,7 @@ const GoodPage = () => {
                 <ArrowLeft className={styles.handler__arrow} />
               </span>
               <img
-                src={product?.img ?? GoodImage}
+                src={product?.photo?.[0] ?? GoodImage}
                 alt="Изображение товара"
                 className={styles.image__pic}
               />
@@ -102,14 +135,22 @@ const GoodPage = () => {
                 </li>
               </ul>
 
-              <Button
-                hasIcon={true}
-                text={`${product?.composition} руб`}
-                isPrimary={true}
-                onClick={() => {}}
-                icon={<CartPlus className={styles.icon} />}
-                full={true}
-              />
+              {inCart ? (
+                <CounterButton
+                  onCountChange={handleUpdateCount}
+                  text={count !== null ? count.toString() : '1'}
+                  weight={product?.weight ?? 1}
+                />
+              ) : (
+                <Button
+                  hasIcon={true}
+                  text={(product?.price && `${product?.price} руб`) || 'договорная цена'}
+                  isPrimary={true}
+                  onClick={handleAddToCart}
+                  icon={<CartPlus className={styles.icon} />}
+                  full={true}
+                />
+              )}
             </div>
           </div>
         </div>

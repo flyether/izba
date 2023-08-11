@@ -7,6 +7,7 @@ import { setupListeners } from '@reduxjs/toolkit/query';
 import categoriesSlice from './slices/CategoriesSlice';
 import generalConditionsSlice from './slices/GeneralConditionsSlice';
 import productsSlice from './slices/ProductsSlice';
+import cartSlice from './slices/CartSlice';
 
 export const store = configureStore({
   reducer: {
@@ -17,6 +18,7 @@ export const store = configureStore({
     categories: categoriesSlice,
     generalConditions: generalConditionsSlice,
     products: productsSlice,
+    cart: cartSlice,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(commonApi.middleware),
 });
